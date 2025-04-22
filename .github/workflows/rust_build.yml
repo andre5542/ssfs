@@ -46,7 +46,7 @@ jobs:
       - name: Fetch dependencies (optional but recommended)
         run: cargo fetch
       - name: Generate SBOM
-        run: cargo cyclonedx --format xml --output-file sbom.xml
+        run: cargo cyclonedx --override-filename sbom
       - name: Upload SBOM as artifact
         uses: actions/upload-artifact@v4
         with:
