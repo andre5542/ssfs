@@ -32,4 +32,7 @@ jobs:
     - name: Secret Scanning
       uses: trufflesecurity/trufflehog@main
       with:
-        extra_args: --results=verified,unknown
+        # Scan commits until here (usually dev branch).
+        head: ${{ github.ref_name }}
+        # Extra args to be passed to the trufflehog cli.
+        # extra_args: --log-level=2 --results=verified,unknown
