@@ -36,3 +36,23 @@ jobs:
         head: ${{ github.ref_name }}
         # Extra args to be passed to the trufflehog cli.
         # extra_args: --log-level=2 --results=verified,unknown
+
+  generate-sbom:
+    name: Generate SBOM
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+  
+      - name: Install cargo-cyclonedx
+        run: cargo install cargo-cyclonedx
+  
+      - name: Generate SBOM
+        run: |
+          cargo cyclonedx --override-filename sbom.xml
+  
+      - name: Upload SBOM as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom
+          path: sbom.xml
