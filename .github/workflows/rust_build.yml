@@ -31,7 +31,8 @@ jobs:
       uses: trufflesecurity/trufflehog@main
       with:
         # Scan commits until here (usually dev branch).
-        head: ${{ github.ref_name }}
+        head: HEAD
+        #head: ${{ github.ref_name }}
         # Extra args to be passed to the trufflehog cli.
         # extra_args: --log-level=2 --results=verified,unknown
 
