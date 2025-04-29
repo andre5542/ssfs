@@ -42,15 +42,3 @@ jobs:
       #   with:
       #     name: sbom
       #     path: 
-
-  trufflehog:
-    name: TruffleHog
-    runs-on: ubuntu-latest
-    # TODO 6: ajouter la tache de trufflehog
-    # https://github.com/trufflesecurity/trufflehog#octocat-trufflehog-github-action
-    steps:
-      - name: Checkout code
-        run: ls
-    # - name: Secret Scanning
-    #   with:
-    #     head: ${{ github.ref_name }}
